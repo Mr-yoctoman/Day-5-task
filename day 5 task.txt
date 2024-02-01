@@ -1,0 +1,59 @@
+﻿Question : what is Json ?
+Answer : 
+* Json stands for JavaScript Object Notation. It is a format which is used in sending the data between server and client. 
+* To loop the Json data, one has to parse it using the parse() method.
+* After parsing the Json data , it is converted to object, then only the object is iterable.
+* I have created a Json object before parsing it. The Json object I used is about my resume.
+1. ) Question : create your own resume in Json format !
+//I have created json data format about my resume as per my knowledge.
+let myResume = {
+  "firstName": "ashuthosh",
+  "lastName": "acharya",
+  "education_qualification": "B.tech",
+  "year_passed_out": 2012,
+  "work_experience_1": "TATA Business Support Service",
+  "work_experience_2": "Value Labs",
+  "work_experience_3": "Wipro",
+  "hobbies": ["playing cricket", "Reading Novels", "cooking"],
+  "coding_skills": ["html5", "css3", "Javascript", "Jquery", "Bootstrap"],
+};
+2 Question , use for , for-in, for-of, for-Each loop on the Json object!
+Answer : 
+Using for loop
+//first the Json is converted into JavaScript object then apply for loop for key and values.
+let myResume = {
+  firstName: "ashuthosh",
+  lastName: "acharya",
+  education_qualification: "B.tech",
+  year_passed_out: 2012,
+  work_experience_1: "TATA Business Support Service",
+  work_experience_2: "Value Labs",
+  work_experience_3: "Wipro",
+  hobbies: ["playing cricket", "Reading Novels", "cooking"],
+  coding_skills: ["html5", "css3", "Javascript", "Jquery", "Bootstrap"],
+};
+// using for loop.
+let keys = Object.keys(myResume);
+for (let i = 0; i < keys.length; i++) {
+  let key = keys[i];
+  let value = myResume[key];
+  console.log(key, value);
+}
+//using for in loop iterating key and value separately
+for (let keys in myResume) {
+  let key = keys;
+  let value = myResume[key];
+  console.log(`key : ${key} and value : ${value} `);
+}
+// using for - of will throw an error as myResume is not iteratable for JavaScript objects and Json data format
+for (let keys of myResume) {
+  let key = keys;
+  let value = myResume[key];
+  console.log(`key : ${key} and value : ${value} `);
+}
+// using forEach method.
+// JavaScript itself does not have a built-in for each method for looping through plain objects. However, we can use the ‘Object.keys()’ method to get an array of keys and then use ‘forEach’ on that array.
+Object.keys(myResume).forEach((key) => {
+  const value = myResume[key];
+  console.log(`${key}: ${value}`);
+});
